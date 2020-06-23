@@ -1,3 +1,7 @@
+# Tips
+
+`echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
+
 # App
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
