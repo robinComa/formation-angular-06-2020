@@ -3,9 +3,7 @@ import { Animal } from './animal';
 
 @Injectable()
 export class AnimalService {
-  constructor() {
-    console.log('new');
-  }
+  constructor() {}
 
   get(): Animal {
     return {
@@ -14,5 +12,9 @@ export class AnimalService {
       veterinaire: 'Mr Smith',
       commentaire: 'Super sympas ce chat !',
     };
+  }
+
+  findAll(): Animal[] {
+    return [this.get(), this.get()];
   }
 }
