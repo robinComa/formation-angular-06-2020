@@ -7,6 +7,7 @@ export class AnimalService {
 
   get(): Animal {
     return {
+      naissance: 1234567890123,
       name: 'Felix',
       espece: 'Chat',
       veterinaire: 'Mr Smith',
