@@ -2,4 +2,4 @@
 
 <p>Expèce : {{ animal.espece }}</p>
 <p>Vétérinaire : {{ animal.veterinaire }}</p>
-<p>Commentaire : {{ animal.commentaire }}</p>
+<p>Commentaire : {{ animal.commentaire | truncate: 10 }}</p>

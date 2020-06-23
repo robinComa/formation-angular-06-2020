@@ -4,9 +4,15 @@ import { AnimalPreviewComponent } from './animal-preview/animal-preview.componen
 import { AnimalService } from './shared/animal.service';
 import { AnimalListComponent } from './animal-list/animal-list.component';
 import { UppercaseDirective } from './shared/uppercase.directive';
+import { TruncatePipe } from './shared/truncate.pipe';
 
 @NgModule({
-  declarations: [AnimalPreviewComponent, AnimalListComponent, UppercaseDirective],
+  declarations: [
+    AnimalPreviewComponent,
+    AnimalListComponent,
+    UppercaseDirective,
+    TruncatePipe,
+  ],
   imports: [CommonModule],
   exports: [AnimalPreviewComponent, AnimalListComponent],
   providers: [AnimalService],
