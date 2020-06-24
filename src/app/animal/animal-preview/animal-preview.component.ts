@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { Animal } from '../shared/animal';
 import { AnimalService } from '../shared/animal.service';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-animal-preview',
