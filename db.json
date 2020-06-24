@@ -1,4 +1,9 @@
 {
+  "veterinaires": [
+    {
+      "name": "Mr Smith"
+    }
+  ],
   "animals": [
     {
       "id": 1,
