@@ -15,4 +15,10 @@ export class AnimalListComponent implements OnInit {
   ngOnInit(): void {
     this.animals = this.animalService.findAll();
   }
+
+  delete(animal: Animal): void {
+    console.log(this.animals);
+    const index = this.animals.findIndex((a: Animal) => a.name === animal.name);
+    this.animals.splice(index, 1);
+  }
 }

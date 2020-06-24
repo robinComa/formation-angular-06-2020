@@ -1,1 +1,6 @@
-<app-animal-preview *ngFor="let animal of animals"> </app-animal-preview>
+<app-animal-list-item
+  [animal]="a"
+  (remove)="delete($event)"
+  *ngFor="let a of animals"
+>
+</app-animal-list-item>

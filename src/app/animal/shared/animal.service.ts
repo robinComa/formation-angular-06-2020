@@ -12,6 +12,8 @@ export class AnimalService {
       espece: 'Chat',
       veterinaire: 'Mr Smith',
       commentaire: 'Super sympas ce chat !',
+      picture:
+        'https://www.forumemploiseniors.fr/wp-content/uploads/2016/05/felix-couv.jpg',
     };
   }
 

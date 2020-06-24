@@ -4,4 +4,5 @@ export interface Animal {
   espece: string;
   veterinaire: string;
   commentaire: string;
+  picture: string;
 }
