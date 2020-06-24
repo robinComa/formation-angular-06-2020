@@ -1,2 +1,5 @@
 <p>{{ animal.name }}</p>
+
+<a [routerLink]="['animals', animal.id]">Voir</a>
+
 <button (click)="delete()">Supprimer</button>

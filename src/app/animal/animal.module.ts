@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+
 import { AnimalPreviewComponent } from './animal-preview/animal-preview.component';
 import { AnimalService } from './shared/animal.service';
 import { AnimalListComponent } from './animal-list/animal-list.component';
@@ -17,7 +19,7 @@ import { HttpTimeInterceptor } from './shared/http-time.interceptor';
     TruncatePipe,
     AnimalListItemComponent,
   ],
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule, RouterModule],
   exports: [AnimalPreviewComponent, AnimalListComponent],
   providers: [
     AnimalService,
