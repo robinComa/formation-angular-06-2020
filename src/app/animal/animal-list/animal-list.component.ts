@@ -17,7 +17,6 @@ export class AnimalListComponent implements OnInit {
   }
 
   delete(animal: Animal): void {
-    console.log(this.animals);
     const index = this.animals.findIndex((a: Animal) => a.name === animal.name);
     this.animals.splice(index, 1);
   }
