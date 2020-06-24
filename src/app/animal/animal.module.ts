@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AnimalPreviewComponent } from './animal-preview/animal-preview.component';
 import { AnimalService } from './shared/animal.service';
 import { AnimalListComponent } from './animal-list/animal-list.component';
 import { UppercaseDirective } from './shared/uppercase.directive';
 import { TruncatePipe } from './shared/truncate.pipe';
 import { AnimalListItemComponent } from './animal-list/animal-list-item/animal-list-item.component';
+import { HttpTimeInterceptor } from './shared/http-time.interceptor';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,9 @@ import { AnimalListItemComponent } from './animal-list/animal-list-item/animal-l
   ],
   imports: [CommonModule, HttpClientModule],
   exports: [AnimalPreviewComponent, AnimalListComponent],
-  providers: [AnimalService],
+  providers: [
+    AnimalService,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpTimeInterceptor, multi: true },
+  ],
 })
 export class AnimalModule {}
