@@ -1,23 +1,22 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 import { Animal } from './animal';
 
 @Injectable()
 export class AnimalService {
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
 
-  get(): Animal {
-    return {
-      naissance: 1234567890123,
-      name: 'Felix',
-      espece: 'Chat',
-      veterinaire: 'Mr Smith',
-      commentaire: 'Super sympas ce chat !',
-      picture:
-        'https://www.forumemploiseniors.fr/wp-content/uploads/2016/05/felix-couv.jpg',
-    };
+  findAll(): Observable<Animal[]> {
+    return this.httpClient.get<Animal[]>('http://localhost:3000/animals');
   }
 
-  findAll(): Animal[] {
-    return [this.get(), this.get()];
+  get(id: number): Observable<Animal> {
+    return this.httpClient.get<Animal>(`http://localhost:3000/animals/${id}`);
+  }
+
+  delete(id: number): Observable<void> {
+    return this.httpClient.delete<void>(`http://localhost:3000/animals/${id}`);
   }
 }
