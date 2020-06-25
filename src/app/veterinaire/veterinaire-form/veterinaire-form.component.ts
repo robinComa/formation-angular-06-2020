@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Veterinaire } from '../shared/veterinaire';
@@ -12,6 +12,7 @@ import { VeterinaireService } from '../shared/veterinaire.service';
 })
 export class VeterinaireFormComponent implements OnInit {
   veterinaireFormGroup: FormGroup;
+  isSubmitted = false;
 
   constructor(
     private veterinaireService: VeterinaireService,
@@ -24,11 +25,14 @@ export class VeterinaireFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.veterinaireService
-      .create(this.veterinaireFormGroup.value)
-      .subscribe(() =>
-        this.router.navigate(['..'], { relativeTo: this.activatedRoute })
-      );
+    this.isSubmitted = true;
+    if (this.veterinaireFormGroup.valid) {
+      this.veterinaireService
+        .create(this.veterinaireFormGroup.value)
+        .subscribe(() =>
+          this.router.navigate(['..'], { relativeTo: this.activatedRoute })
+        );
+    }
   }
 
   private initForm(
@@ -39,7 +43,10 @@ export class VeterinaireFormComponent implements OnInit {
   ): void {
     this.veterinaireFormGroup = new FormGroup({
       id: new FormControl(veterinaire.id),
-      name: new FormControl(veterinaire.name),
+      name: new FormControl(veterinaire.name, [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
     });
   }
 }
