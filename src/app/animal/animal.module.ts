@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AnimalPreviewComponent } from './animal-preview/animal-preview.component';
@@ -24,7 +25,7 @@ import { AnimalFormComponent } from './animal-form/animal-form.component';
     AnimalRootComponent,
     AnimalFormComponent,
   ],
-  imports: [CommonModule, HttpClientModule, AnimalRoutingModule],
+  imports: [CommonModule, HttpClientModule, AnimalRoutingModule, FormsModule],
   exports: [AnimalPreviewComponent, AnimalListComponent],
   providers: [
     AnimalService,

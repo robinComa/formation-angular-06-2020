@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnimalService } from '../shared/animal.service';
 import { Animal } from '../shared/animal';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-animal-form',
@@ -8,14 +9,31 @@ import { Animal } from '../shared/animal';
   styleUrls: ['./animal-form.component.scss'],
 })
 export class AnimalFormComponent implements OnInit {
-  constructor(private animalService: AnimalService) {}
+  animal: Animal;
 
-  ngOnInit(): void {}
+  constructor(private animalService: AnimalService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.initForm();
+  }
 
   onSubmit(): void {
-    const animal: Animal = null; // null => animal de la vue
-    this.animalService.create(animal).subscribe(() => {
-      console.log('Ok il est créé');
+    this.animalService.create(this.animal).subscribe(() => {
+      this.router.navigate(['..']);
     });
+  }
+
+  private initForm(
+    animal: Animal = {
+      id: null,
+      name: '',
+      commentaire: '',
+      espece: '',
+      naissance: null,
+      picture: '',
+      veterinaire: '',
+    }
+  ): void {
+    this.animal = animal;
   }
 }
