@@ -1,6 +1,18 @@
-<form (submit)="onSubmit()">
+<form #animalForm="ngForm" (submit)="onSubmit()">
   <label for="name">Name :</label>
-  <input id="name" name="name" type="text" [(ngModel)]="animal.name" />
+  <input
+    #name="ngModel"
+    id="name"
+    name="name"
+    type="text"
+    [(ngModel)]="animal.name"
+    required
+    minlength="2"
+  />
+  <p *ngIf="name.errors?.required">Ce champ est obligatoire</p>
+  <p *ngIf="name.errors?.minlength">
+    Ce champ doit avoir au moins 2 caractères
+  </p>
   <br />
 
   <label for="naissance">Naissance :</label>
@@ -38,5 +50,5 @@
   <input id="picture" name="picture" type="url" [(ngModel)]="animal.picture" />
   <hr />
 
-  <button type="submit">Submit</button>
+  <button type="submit" [disabled]="!animalForm.form.valid">Submit</button>
 </form>
