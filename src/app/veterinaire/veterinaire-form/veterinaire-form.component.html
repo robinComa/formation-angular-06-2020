@@ -6,7 +6,10 @@
       Ce champs est obligatoire
     </p>
     <p *ngIf="veterinaireFormGroup.get('name').errors?.minlength">
-      Ce champs doit avoir au moins 3 caractères
+      Ce champs doit avoir au moins
+      {{ veterinaireFormGroup.get("name").errors?.minlength.requiredLength }}
+      caractères, vous en avez saisie seulement
+      {{ veterinaireFormGroup.get("name").errors?.minlength.actualLength }}
     </p>
   </div>
 
