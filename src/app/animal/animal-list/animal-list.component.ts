@@ -13,17 +13,16 @@ export class AnimalListComponent implements OnInit {
   constructor(private animalService: AnimalService) {}
 
   ngOnInit(): void {
-    this.animalService
-      .findAll()
-      .subscribe((animals: Animal[]) => (this.animals = animals));
+    this.loadAnimals();
   }
 
   delete(animal: Animal): void {
-    this.animalService.delete(animal.id).subscribe(() => {
-      const index = this.animals.findIndex(
-        (a: Animal) => a.name === animal.name
-      );
-      this.animals.splice(index, 1);
-    });
+    this.animalService.delete(animal.id).subscribe(() => this.loadAnimals());
+  }
+
+  private loadAnimals(): void {
+    this.animalService
+      .findAll()
+      .subscribe((animals: Animal[]) => (this.animals = animals));
   }
 }
