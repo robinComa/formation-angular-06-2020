@@ -12,6 +12,10 @@ export class AnimalService {
     return this.httpClient.get<Animal[]>('http://localhost:3000/animals');
   }
 
+  create(animal: Animal): Observable<void> {
+    return this.httpClient.post<void>('http://localhost:3000/animals', animal);
+  }
+
   get(id: number): Observable<Animal> {
     return this.httpClient.get<Animal>(`http://localhost:3000/animals/${id}`);
   }

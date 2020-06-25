@@ -5,6 +5,7 @@ import { AnimalListComponent } from './animal-list/animal-list.component';
 import { AnimalPreviewComponent } from './animal-preview/animal-preview.component';
 import { AnimalRootComponent } from './animal-root/animal-root.component';
 import { AnimalResolverService } from './shared/animal-resolver.service';
+import { AnimalFormComponent } from './animal-form/animal-form.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
     component: AnimalRootComponent,
     children: [
       { path: '', component: AnimalListComponent },
+      { path: 'form', component: AnimalFormComponent },
       {
         path: ':id',
         component: AnimalPreviewComponent,

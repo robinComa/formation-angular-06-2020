@@ -12,6 +12,7 @@ import { HttpTimeInterceptor } from './shared/http-time.interceptor';
 import { AnimalRoutingModule } from './animal-routing.module';
 import { AnimalRootComponent } from './animal-root/animal-root.component';
 import { AnimalResolverService } from './shared/animal-resolver.service';
+import { AnimalFormComponent } from './animal-form/animal-form.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AnimalResolverService } from './shared/animal-resolver.service';
     TruncatePipe,
     AnimalListItemComponent,
     AnimalRootComponent,
+    AnimalFormComponent,
   ],
   imports: [CommonModule, HttpClientModule, AnimalRoutingModule],
   exports: [AnimalPreviewComponent, AnimalListComponent],
