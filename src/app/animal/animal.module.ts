@@ -11,6 +11,7 @@ import { AnimalListItemComponent } from './animal-list/animal-list-item/animal-l
 import { HttpTimeInterceptor } from './shared/http-time.interceptor';
 import { AnimalRoutingModule } from './animal-routing.module';
 import { AnimalRootComponent } from './animal-root/animal-root.component';
+import { AnimalResolverService } from './shared/animal-resolver.service';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AnimalRootComponent } from './animal-root/animal-root.component';
   exports: [AnimalPreviewComponent, AnimalListComponent],
   providers: [
     AnimalService,
+    AnimalResolverService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpTimeInterceptor, multi: true },
   ],
 })

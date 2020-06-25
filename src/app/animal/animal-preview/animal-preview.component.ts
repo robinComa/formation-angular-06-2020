@@ -1,36 +1,19 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { Animal } from '../shared/animal';
-import { AnimalService } from '../shared/animal.service';
 
 @Component({
   selector: 'app-animal-preview',
   templateUrl: './animal-preview.component.html',
   styleUrls: ['./animal-preview.component.scss'],
 })
-export class AnimalPreviewComponent implements OnInit, OnDestroy {
+export class AnimalPreviewComponent implements OnInit {
   animal: Animal;
 
-  private routeSubscription: Subscription;
-
-  constructor(
-    private animalService: AnimalService,
-    private activatedRoute: ActivatedRoute
-  ) {}
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.routeSubscription = this.activatedRoute.params.subscribe(
-      (params: Params) => {
-        this.animalService
-          .get(+params.id)
-          .subscribe((animal: Animal) => (this.animal = animal));
-      }
-    );
-  }
-
-  ngOnDestroy(): void {
-    this.routeSubscription.unsubscribe();
+    this.animal = this.activatedRoute.snapshot.data.animal;
   }
 }
