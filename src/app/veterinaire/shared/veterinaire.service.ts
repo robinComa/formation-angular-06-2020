@@ -13,4 +13,11 @@ export class VeterinaireService {
       'http://localhost:3000/veterinaires'
     );
   }
+
+  create(veterinaire: Veterinaire): Observable<void> {
+    return this.httpClient.post<void>(
+      'http://localhost:3000/veterinaires',
+      veterinaire
+    );
+  }
 }

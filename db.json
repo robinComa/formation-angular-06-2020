@@ -1,7 +1,16 @@
 {
   "veterinaires": [
     {
+      "id": 1,
       "name": "Mr Smith"
+    },
+    {
+      "name": "Robin Coma",
+      "id": 2
+    },
+    {
+      "name": "Bill Gates",
+      "id": 3
     }
   ],
   "animals": [
