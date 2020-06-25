@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Veterinaire } from './veterinaire';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class VeterinaireService {
@@ -10,13 +11,13 @@ export class VeterinaireService {
 
   findAll(): Observable<Veterinaire[]> {
     return this.httpClient.get<Veterinaire[]>(
-      'http://localhost:3000/veterinaires'
+      `${environment.endpoint}/veterinaires`
     );
   }
 
   create(veterinaire: Veterinaire): Observable<void> {
     return this.httpClient.post<void>(
-      'http://localhost:3000/veterinaires',
+      `${environment.endpoint}/veterinaires`,
       veterinaire
     );
   }
