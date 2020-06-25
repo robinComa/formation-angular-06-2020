@@ -1,6 +1,6 @@
 <form [formGroup]="veterinaireFormGroup" (submit)="onSubmit()">
-  <label for="name">Name</label>
-  <input id="name" type="text" formControlName="name" />
+  <label for="name">Name : </label>
+  <input id="name" type="text" formControlName="name" required minlength="3" />
   <div *ngIf="isSubmitted">
     <p *ngIf="veterinaireFormGroup.get('name').errors?.required">
       Ce champs est obligatoire
