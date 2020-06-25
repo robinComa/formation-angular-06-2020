@@ -11,6 +11,14 @@
     {
       "name": "Bill Gates",
       "id": 3
+    },
+    {
+      "name": "Mr Cat",
+      "id": 4
+    },
+    {
+      "id": 5,
+      "name": "Mr Dog"
     }
   ],
   "animals": [

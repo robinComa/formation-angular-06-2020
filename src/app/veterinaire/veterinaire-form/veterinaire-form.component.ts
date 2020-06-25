@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { Veterinaire } from '../shared/veterinaire';
 import { VeterinaireService } from '../shared/veterinaire.service';
-import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-veterinaire-form',
@@ -37,6 +38,7 @@ export class VeterinaireFormComponent implements OnInit {
     }
   ): void {
     this.veterinaireFormGroup = new FormGroup({
+      id: new FormControl(veterinaire.id),
       name: new FormControl(veterinaire.name),
     });
   }

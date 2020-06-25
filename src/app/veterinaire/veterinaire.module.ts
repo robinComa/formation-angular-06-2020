@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { VeterinaireRoutingModule } from './veterinaire-routing.module';
 import { VeterinaireListComponent } from './veterinaire-list/veterinaire-list.component';
@@ -16,7 +16,6 @@ import { VeterinaireFormComponent } from './veterinaire-form/veterinaire-form.co
     HttpClientModule,
     VeterinaireRoutingModule,
     ReactiveFormsModule,
-    FormsModule,
   ],
   providers: [VeterinaireService],
 })

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { AnimalService } from '../shared/animal.service';
 import { Animal } from '../shared/animal';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-animal-form',
@@ -11,7 +12,11 @@ import { Router } from '@angular/router';
 export class AnimalFormComponent implements OnInit {
   animal: Animal;
 
-  constructor(private animalService: AnimalService, private router: Router) {}
+  constructor(
+    private animalService: AnimalService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -19,7 +24,7 @@ export class AnimalFormComponent implements OnInit {
 
   onSubmit(): void {
     this.animalService.create(this.animal).subscribe(() => {
-      this.router.navigate(['..']);
+      this.router.navigate(['..'], { relativeTo: this.activatedRoute });
     });
   }
 
