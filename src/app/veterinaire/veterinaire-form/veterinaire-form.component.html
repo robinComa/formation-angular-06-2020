@@ -1,19 +1,28 @@
 <form [formGroup]="veterinaireFormGroup" (submit)="onSubmit()">
-  <label for="name">Name : </label>
-  <input id="name" type="text" formControlName="name" required minlength="3" />
-  <div *ngIf="isSubmitted">
-    <p *ngIf="veterinaireFormGroup.get('name').errors?.required">
-      Ce champs est obligatoire
-    </p>
-    <p *ngIf="veterinaireFormGroup.get('name').errors?.minlength">
-      Ce champs doit avoir au moins
-      {{ veterinaireFormGroup.get("name").errors?.minlength.requiredLength }}
-      caractères, vous en avez saisie seulement
-      {{ veterinaireFormGroup.get("name").errors?.minlength.actualLength }}
-    </p>
-  </div>
+  <mat-form-field>
+    <input
+      matInput
+      formControlName="name"
+      required
+      minlength="3"
+      placeholder="Ex. Mr Smith"
+    />
+    <div *ngIf="isSubmitted">
+      <mat-error
+        align="start"
+        *ngIf="veterinaireFormGroup.get('name').errors?.required"
+      >
+        Ce champs est obligatoire
+      </mat-error>
+      <mat-error
+        align="end"
+        *ngIf="veterinaireFormGroup.get('name').errors?.minlength"
+      >
+        {{ veterinaireFormGroup.get("name").errors?.minlength.actualLength }} /
+        {{ veterinaireFormGroup.get("name").errors?.minlength.requiredLength }}
+      </mat-error>
+    </div>
+  </mat-form-field>
 
-  <br />
-
-  <button type="submit">Submit</button>
+  <button mat-button type="submit">Submit</button>
 </form>
