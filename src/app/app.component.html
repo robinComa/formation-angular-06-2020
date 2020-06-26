@@ -1,6 +1,17 @@
-<h1>App Veto</h1>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h1>App Veto</h1>
+    <button routerLink="/" mat-icon-button>
+      <mat-icon>home</mat-icon>
+    </button>
+    <span class="spacer"></span>
+    <button [routerLink]="['veterinaires']" mat-icon-button>
+      <mat-icon>assignment_ind</mat-icon>
+    </button>
+    <button [routerLink]="['animals']" mat-icon-button>
+      <mat-icon>pets</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-<a routerLink="/">Home</a>
-<a [routerLink]="['veterinaires']">Veterinaires</a>
-<a [routerLink]="['animals']">Animals</a>
 <router-outlet></router-outlet>
