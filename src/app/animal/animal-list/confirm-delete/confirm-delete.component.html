@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Confirmation</h1>
+<div mat-dialog-content>
+  <p>Voulez vous supprimez cet animal ?</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="false">No Thanks</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>
+    Ok
+  </button>
+</div>

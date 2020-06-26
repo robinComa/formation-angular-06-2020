@@ -1,5 +1,11 @@
-<a [routerLink]="['form']">Créer un vétérinaire</a>
+<mat-list>
+  <div mat-subheader>Liste des veterinaires</div>
+  <mat-list-item *ngFor="let veterinaire of veterinaires">
+    <mat-icon mat-list-icon>assignment_ind</mat-icon>
+    <div mat-line>{{ veterinaire.name }}</div>
+  </mat-list-item>
+</mat-list>
 
-<ul>
-  <li *ngFor="let veterinaire of veterinaires">{{ veterinaire.name }}</li>
-</ul>
+<a mat-fab color="primary" [routerLink]="['form']">
+  <mat-icon>add</mat-icon>
+</a>

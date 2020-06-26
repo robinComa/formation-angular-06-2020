@@ -1,8 +1,29 @@
-<a [routerLink]="['form']">Créer un animal</a>
+<mat-list>
+  <div mat-subheader>Liste des animaux</div>
+  <mat-list-item *ngFor="let animal of animals">
+    <mat-icon mat-list-icon>pets</mat-icon>
+    <div mat-line>{{ animal.name }}</div>
+    <div mat-line>{{ animal.espece }}</div>
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <a mat-menu-item [routerLink]="[animal.id]">
+        <mat-icon>visibility</mat-icon>
+        <span>Voir</span>
+      </a>
+      <button mat-menu-item (click)="delete(animal)">
+        <mat-icon>delete</mat-icon>
+        <span>Supprimer</span>
+      </button>
+    </mat-menu>
+  </mat-list-item>
+</mat-list>
 
-<app-animal-list-item
-  [animal]="a"
-  (remove)="delete($event)"
-  *ngFor="let a of animals"
->
-</app-animal-list-item>
+<a mat-fab color="primary" [routerLink]="['form']">
+  <mat-icon>add</mat-icon>
+</a>
