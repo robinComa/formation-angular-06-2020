@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { AnimalPreviewComponent } from './animal-preview.component';
+import { TruncatePipe } from '../shared/truncate.pipe';
 
 describe('AnimalPreviewComponent', () => {
   let component: AnimalPreviewComponent;
@@ -8,9 +10,9 @@ describe('AnimalPreviewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AnimalPreviewComponent ]
-    })
-    .compileComponents();
+      declarations: [AnimalPreviewComponent, TruncatePipe],
+      imports: [RouterTestingModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

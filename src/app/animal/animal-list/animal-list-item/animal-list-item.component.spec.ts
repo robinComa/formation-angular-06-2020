@@ -8,14 +8,22 @@ describe('AnimalListItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AnimalListItemComponent ]
-    })
-    .compileComponents();
+      declarations: [AnimalListItemComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AnimalListItemComponent);
     component = fixture.componentInstance;
+    component.animal = {
+      id: 1,
+      name: '',
+      espece: '',
+      naissance: 1234567890123,
+      picture: '',
+      veterinaire: '',
+      commentaire: '',
+    };
     fixture.detectChanges();
   });
 
