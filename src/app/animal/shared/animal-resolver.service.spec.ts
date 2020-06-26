@@ -4,7 +4,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AnimalResolverService } from './animal-resolver.service';
 import { AnimalService } from './animal.service';
 
-describe('AnimalResolverService', () => {
+fdescribe('AnimalResolverService', () => {
   let service: AnimalResolverService;
 
   beforeEach(() => {
