@@ -4,6 +4,7 @@ import { registerLocaleData } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 import localeFr from '@angular/common/locales/fr';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -30,6 +31,7 @@ export function createTranslateLoader(http: HttpClient) {
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatMenuModule,
     TranslateModule.forRoot({
       defaultLanguage: 'fr',
       loader: {

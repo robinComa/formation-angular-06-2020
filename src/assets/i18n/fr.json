@@ -1,1 +1,13 @@
-{}
+{
+  "title": "App Veto FR",
+  "langs": [
+    {
+      "key": "fr",
+      "label": "Francais"
+    },
+    {
+      "key": "en",
+      "label": "Anglais"
+    }
+  ]
+}
